@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             x:Class="LocationTracker.MyPage.ReportPage">
+    <StackLayout Padding="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Text="From:" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"/>
+                <DatePicker x:Name="TuNgay" Grid.Column="1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}">
+                    <DatePicker.Format>dd/MM/yyyy</DatePicker.Format>
+                    <DatePicker.MinimumDate>
+                        <sys:DateTime x:FactoryMethod="Parse">
+                            <x:Arguments>
+                                <x:String>Jan 1 2000</x:String>
+                            </x:Arguments>
+                        </sys:DateTime>
+                    </DatePicker.MinimumDate>
+                    <DatePicker.MaximumDate>
+                        <sys:DateTime x:FactoryMethod="Parse">
+                            <x:Arguments>
+                                <x:String>Dec 31 2050</x:String>
+                            </x:Arguments>
+                        </sys:DateTime>
+                    </DatePicker.MaximumDate>
+                </DatePicker>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Text="To:" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"/>
+                <DatePicker x:Name="DenNgay" Grid.Column="1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}">
+                    <DatePicker.Format>dd/MM/yyyy</DatePicker.Format>
+                    <DatePicker.MinimumDate>
+                        <sys:DateTime x:FactoryMethod="Parse">
+                            <x:Arguments>
+                                <x:String>Jan 1 2000</x:String>
+                            </x:Arguments>
+                        </sys:DateTime>
+                    </DatePicker.MinimumDate>
+                    <DatePicker.MaximumDate>
+                        <sys:DateTime x:FactoryMethod="Parse">
+                            <x:Arguments>
+                                <x:String>Dec 31 2050</x:String>
+                            </x:Arguments>
+                        </sys:DateTime>
+                    </DatePicker.MaximumDate>
+                </DatePicker>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="buttonView" Grid.Column="0" Text="View" IsVisible="False" Clicked="ButtonView_OnClicked" Style="{StaticResource ButtonStyle}">
+                    <Button.BorderRadius>
+                        <OnPlatform x:TypeArguments="x:Int32"
+                                iOS     ="25"
+                                Android ="25"
+                                WinPhone="25" />
+                    </Button.BorderRadius>
+                </Button>
+                <Button x:Name="buttonViewOnMap" Grid.Column="1" Text="View on Map" Clicked="ButtonViewOnMap_OnClicked" IsVisible="False" Style="{StaticResource ButtonStyle}">
+                    <Button.BorderRadius>
+                        <OnPlatform x:TypeArguments="x:Int32"
+                                iOS     ="25"
+                                Android ="25"
+                                WinPhone="25" />
+                    </Button.BorderRadius>
+                </Button>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Text="Total of group:" VerticalOptions="CenterAndExpand"/>
+                <Picker Grid.Column="1" x:Name="pickerGroup" Title="Select a group" SelectedIndexChanged="PickerGroup_OnSelectedIndexChanged" VerticalOptions="CenterAndExpand"/>
+            </Grid>
+            <Label Grid.Row="4" x:Name="txtKetQua" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" FontSize="55"/>
+            <Label Grid.Row="5" x:Name="txtTotalAllgroup" FontSize="25" VerticalOptions="EndAndExpand" />
+        </Grid>
+    </StackLayout>
+</ContentPage>

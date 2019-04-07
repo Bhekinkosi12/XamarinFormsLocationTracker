@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:LocationTracker"
+             MasterBehavior="Popover"
+             x:Class="LocationTracker.MainPage">
+
+    <MasterDetailPage.Master>
+        <ContentPage Title="Distance Tracker" Padding="10">
+            <ContentPage.Content>
+                <StackLayout>
+                    <StackLayout>
+                        <Image Source="MenuIcon.png" WidthRequest="120" HeightRequest="120" HorizontalOptions="Center" />
+                        <Button Text="Home" x:Name="homeButton" Clicked="HomeButton_OnClicked" BackgroundColor="Transparent" BorderColor="Transparent"/>
+                        <Button Text="Group manager" x:Name="groupManagerButton" Clicked="GroupManagerButton_OnClicked" BackgroundColor="Transparent" BorderColor="Transparent"/>
+                        <Button Text="Input manualy" x:Name="inputManualtButton" Clicked="InputManualtButton_OnClicked"  BackgroundColor="Transparent" BorderColor="Transparent"/>
+                        <Button Text="Report" x:Name="reportButton" Clicked="ReportButton_OnClicked"  BackgroundColor="Transparent" BorderColor="Transparent"/>
+                        <Label Text="Orther" TextColor="SteelBlue" HorizontalOptions="Center"/>
+                        <!--<Button Text="Setting" x:Name="settingButton" Clicked="settingButton_Clicked" BackgroundColor="Transparent"/>-->
+                        <Button Text="Remove Ads and Donation" x:Name="buyButton"  BackgroundColor="Transparent" BorderColor="Transparent"/>
+                        <Button Text="About" x:Name="aboutButton"  BackgroundColor="Transparent" BorderColor="Transparent"/>
+                        <Button Text="Orther App" x:Name="BlankButton"  BackgroundColor="Transparent" BorderColor="Transparent"/>
+                    </StackLayout>
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <ContentPage Padding="10" Title="Detail Page">
+            <ContentPage.Content>
+                <StackLayout>
+                    <Label Text="Detai Page">
+
+                    </Label>
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Detail>
+
+</MasterDetailPage>

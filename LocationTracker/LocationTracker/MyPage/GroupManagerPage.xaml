@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LocationTracker.MyPage.GroupManagerPage">
+    <StackLayout Padding="5">
+        <StackLayout>
+            <Entry x:Name="txtGroupName" Placeholder="Enter name of group" BindingContext="{Binding GroupClass}" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Button Text="New" Grid.Column="0" x:Name="buttonNew" Clicked="ButtonNew_OnClicked" Style="{StaticResource ButtonStyle}"/>
+                    <Button Text="Update" Grid.Column="1" x:Name="buttonUpdate" Clicked="ButtonUpdate_OnClicked" Style="{DynamicResource ButtonStyle}"/>
+                    <Button Text="Delete" Grid.Column="2" x:Name="buttonDelete" Clicked="ButtonDelete_OnClicked" Style="{StaticResource ButtonStyle}"/>
+                </Grid>
+            </Grid>
+            <ListView x:Name="listViewMain" ItemSelected="ListViewMain_OnItemSelected" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" Margin="10">
+                                <Label Text="{Binding Group}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        <StackLayout VerticalOptions="EndAndExpand">
+
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

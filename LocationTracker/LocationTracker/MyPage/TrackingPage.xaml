@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LocationTracker.MyPage.TrackingPage">
+    <StackLayout Padding="5">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Text="Status here" x:Name="txtStatus" FontSize="18" HorizontalTextAlignment="Center" />
+            <Label Grid.Row="1" Text="{Binding Group}" FontSize="20" x:Name="txtGroup" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Label Grid.Row="2" x:Name="txtDistance" FontSize="100" HorizontalOptions="CenterAndExpand" />
+            <ActivityIndicator Grid.Row="2" IsVisible="False" x:Name="progressRing"/>
+            <Button x:Name="buttonStart" Grid.Row="3" Clicked="ButtonStart_OnClicked" Text="Start" Style="{StaticResource ButtonStyle}">
+                <Button.BorderRadius>
+                    <OnPlatform x:TypeArguments="x:Int32"
+                                iOS     ="25"
+                                Android ="25"
+                                WinPhone="25" />
+                </Button.BorderRadius>
+            </Button>
+            <Button x:Name="buttonSave" Grid.Row="4" Clicked="ButtonSave_OnClicked" Text="Save" Style="{StaticResource ButtonStyle}">
+                <Button.BorderRadius>
+                    <OnPlatform x:TypeArguments="x:Int32"
+                                iOS     ="25"
+                                Android ="25"
+                                WinPhone="25" />
+                </Button.BorderRadius>
+            </Button>
+            <Label x:Name="txtRadius" Grid.Row="5" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+            <Grid Grid.Row="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Radius in meters (The smallest radius is the higher accuracy, distance will be calculate when GPS Radius in this range)" />
+                <Picker x:Name="pickerRadius" Grid.Column="1" Title="Radius" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" SelectedIndexChanged="PickerRadius_OnSelectedIndexChanged"/>
+            </Grid>
+        </Grid>
+    </StackLayout>
+</ContentPage>
