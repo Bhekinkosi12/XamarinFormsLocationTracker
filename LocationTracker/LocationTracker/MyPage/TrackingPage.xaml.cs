@@ -133,8 +133,9 @@ namespace LocationTracker.MyPage
                     double newlong = position.Longitude;
                     double newla = position.Latitude;
 
-                    if (Double.IsNaN(newlong) == false || Double.IsNaN(newla) == false)
+                    if (Double.IsNaN(newlong) == false && Double.IsNaN(newla) == false)
                     {
+                    
                         distance += DistanceTo(firstla, firstlong, newla, newlong, 'K');
                         firstla = newla;
                         firstlong = newlong;
